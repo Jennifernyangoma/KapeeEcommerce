@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, ChevronDown, ChevronRight } from 'lucide-react';
+import { AiOutlineMenu, AiOutlineDown, AiOutlineRight } from 'react-icons/ai';
 
 interface CategoryItem {
   name: string;
@@ -23,29 +23,26 @@ const HomePage: React.FC = () => {
     { name: "Shirts", hasSubmenu: false }
   ];
 
-  // ...existing code...
-// Example products array
-const products = [
-  {
-    subtitle: "DIGITAL SMART",
-    title: "wireless speaker",
-    offer: "20% Off",
-    button: "Buy Now",
-    image: "public/images2.jpg"
-  },
-  {
-    subtitle: "DIGITAL SMART",
-    title: "WATCH CHERGER",
-    offer: "15% Off",
-    button: "Shop Now",
-    image: "public/watch.jpeg",
-  }
-  // Add more products as neededc:\Users\user\Downloads
-];
-// ...existing code...
+  const products = [
+    {
+      subtitle: "DIGITAL SMART",
+      title: "wireless speaker",
+      offer: "20% Off",
+      button: "Buy Now",
+      image: "public/images2.jpg"
+    },
+    {
+      subtitle: "DIGITAL SMART",
+      title: "WATCH CHERGER",
+      offer: "15% Off",
+      button: "Shop Now",
+      image: "public/watch.jpeg",
+    }
+    // Add more products as needed
+  ];
 
   const navigationItems = [
-    { name: "HOME", hasDropdown: true, className:"" },
+    { name: "HOME", hasDropdown: true },
     { name: "SHOP", hasDropdown: true },
     { name: "PAGES", hasDropdown: true },
     { name: "BLOG", hasDropdown: true },
@@ -73,12 +70,12 @@ const products = [
           <div className="flex items-center justify-between h-16">
             {/* Categories Button */}
             <button
-          onClick={() => {}}
-           className="bg-yellow-400 px-6 py-3 flex items-center gap-3 font-semibold transition-colors"
->
-              <Menu className="w-4 h-4" />
+              onClick={() => {}}
+              className="bg-yellow-400 px-6 py-3 flex items-center gap-3 font-semibold transition-colors"
+            >
+              <AiOutlineMenu className="w-4 h-4" />
               SHOP BY CATEGORIES
-              </button>
+            </button>
 
             {/* Main Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -86,7 +83,7 @@ const products = [
                 <div key={index} className="relative group">
                   <button className="flex items-center gap-1 text-gray-700 hover:text-gray-900 font-medium py-2">
                     {item.name}
-                    {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
+                    {item.hasDropdown && <AiOutlineDown className="w-4 h-4" />}
                   </button>
                 </div>
               ))}
@@ -108,15 +105,12 @@ const products = [
                   >
                     <span className="font-medium">{category.name}</span>
                     {category.hasSubmenu && (
-                      <ChevronRight 
-                        className={`w-1 h-14 transition-transform ${
-                          expandedCategories.has(category.name) ? 'rotate-90' : ''
-                        }`} 
+                      <AiOutlineRight 
+                        className={`w-4 h-4 transition-transform ${expandedCategories.has(category.name) ? 'rotate-90' : ''}`} 
                       />
                     )}
                   </button>
-                  
-                  {/* Submenu placeholder - would expand with actual subcategories */}
+
                   {category.hasSubmenu && expandedCategories.has(category.name) && (
                     <div className="pl-4 pb-2">
                       <div className="text-sm text-gray-500 py-1">Subcategories would appear here</div>
@@ -156,14 +150,14 @@ const products = [
             {/* Headphones Image Section */}
             <div className="flex-1 flex justify-center items-center relative">
               <div className="relative">
-                {/* Headphones Representation */}
-               <div className="relative z-10 w-80 h-80 flex items-center justify-center">
-                <img src="../head.jpeg"
-              alt="Headphones"
-              className=" h-60 object-cover rounded-full border-2 border-white 400"/> 
+                <div className="relative z-10 w-80 h-80 flex items-center justify-center">
+                  <img
+                    src="../head.jpeg"
+                    alt="Headphones"
+                    className="h-60 object-cover rounded-full border-2 border-white"
+                  /> 
                 </div>
 
-                {/* Floating Elements */}
                 <div className="absolute top-10 right-10 w-4 h-4 bg-yellow-400 rounded-full animate-bounce delay-100"></div>
                 <div className="absolute bottom-20 left-10 w-3 h-3 bg-blue-400 rounded-full animate-bounce delay-300"></div>
                 <div className="absolute top-32 left-20 w-2 h-2 bg-yellow-300 rounded-full animate-pulse"></div>
@@ -172,45 +166,43 @@ const products = [
           </div>
         </div>
       </div>
+
       <section>
-      <div className="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-6">
-      {products.map((product, index) => (
-        <div
-          key={index}
-          className="bg-gray-50 shadow-sm rounded-lg flex items-center justify-between p-8"
-        >
-          {/* Text Section */}
-          <div>
-            <p className="text-yellow-500 font-semibold uppercase tracking-wide">
-              {product.subtitle}
-            </p>
-            <h2 className="text-2xl font-bold text-gray-900 mt-2">
-              {product.title}
-            </h2>
-            <p className="text-gray-600 text-lg font-medium mt-1">
-              {product.offer}
-            </p>
+        <div className="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-6">
+          {products.map((product, index) => (
+            <div
+              key={index}
+              className="bg-gray-50 shadow-sm rounded-lg flex items-center justify-between p-8"
+            >
+              <div>
+                <p className="text-yellow-500 font-semibold uppercase tracking-wide">
+                  {product.subtitle}
+                </p>
+                <h2 className="text-2xl font-bold text-gray-900 mt-2">
+                  {product.title}
+                </h2>
+                <p className="text-gray-600 text-lg font-medium mt-1">
+                  {product.offer}
+                </p>
 
-            <button className="mt-6 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-6 py-3 transition-colors">
-              {product.button}
-            </button>
-          </div>
+                <button className="mt-6 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-6 py-3 transition-colors">
+                  {product.button}
+                </button>
+              </div>
 
-          {/* Image Section */}
-          <div className="ml-6 flex-shrink-0">
-            <img
-              src={product.image}
-              alt={product.title}
-              className=" rounded-full border-2 border-white w-40 h-auto object-contain"
-            />
-          </div>
+              <div className="ml-6 flex-shrink-0">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="rounded-full border-2 border-white w-40 h-auto object-contain"
+                />
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-      </div>
       </section> 
     </div>
-    
   );
 };
 
-export default HomePage
+export default HomePage;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Heart } from "lucide-react";
+import { AiOutlineHeart } from "react-icons/ai";
 
 // Types
 interface Product {
@@ -100,7 +100,7 @@ const HotDealCard: React.FC = () => (
       <span className="absolute top-2 left-2 bg-green-500 text-white text-xs px-2 py-1 rounded">
         {hotDeal.discount}
       </span>
-      <Heart className="absolute top-2 right-2 text-gray-500 w-5 h-5" />
+      <AiOutlineHeart className="absolute top-2 right-2 text-gray-500 w-5 h-5" />
     </div>
     <div className="mt-3">
       <p className="text-sm text-gray-500 uppercase">{hotDeal.category}</p>
@@ -110,7 +110,8 @@ const HotDealCard: React.FC = () => (
         <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
           <div
             className="h-2 bg-yellow-500"
-            style={{ width: '${(hotDeal.sold / (hotDeal.sold + hotDeal.available)) * 100}%' }} />
+            style={{ width: `${(hotDeal.sold / (hotDeal.sold + hotDeal.available)) * 100}%` }}
+          />
         </div>
         <div className="flex justify-between text-xs text-gray-500 mt-1">
           <span>Already Sold: {hotDeal.sold}</span>
@@ -124,7 +125,7 @@ const HotDealCard: React.FC = () => (
 const FeaturedProductsCard: React.FC = () => (
   <div className="border rounded-2xl p-4 shadow-md w-full">
     <div className="flex justify-between items-center mb-4">
-      <h2 className="text-xl underline- font-bold">Featured Products</h2>
+      <h2 className="text-xl underline font-bold">Featured Products</h2>
       <button className="text-lg text-yellow-600 font-semibold">VIEW ALL</button>
     </div>
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -140,14 +141,16 @@ const FeaturedProductsCard: React.FC = () => (
               FEATURED
             </span>
           )}
-          <Heart className="absolute top-2 right-2 text-gray-400 w-4 h-4" />
+          <AiOutlineHeart className="absolute top-2 right-2 text-gray-400 w-4 h-4" />
 
           <img src={product.image} alt={product.title} className="rounded-md mb-2" />
           <p className="text-xs text-gray-500 uppercase">{product.category}</p>
           <h3 className="text-sm font-semibold leading-tight">{product.title}</h3>
           <div className="flex items-center gap-2">
             <p className="text-yellow-600 font-bold text-sm">{product.price}</p>
-            {product.oldPrice && <p className="line-through text-gray-400 text-xs">{product.oldPrice}</p>}
+            {product.oldPrice && (
+              <p className="line-through text-gray-400 text-xs">{product.oldPrice}</p>
+            )}
           </div>
         </div>
       ))}
