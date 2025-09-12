@@ -7,7 +7,7 @@ const products = [
     category: "Electronics",
     price: "$499.00 - $599.00",
     discount: "17% OFF",
-    image: "/watch.jpg", // make sure the image path is correct (public folder)
+    image: "/iphone2.jpg", // make sure the image path is correct (public folder)
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const products = [
     price: "$25.00",
     oldPrice: "$45.00",
     discount: "44% OFF",
-    image: "/imagee.jpeg",
+    image: "/imageee.jpeg",
   },
   {
     id: 3,
@@ -26,34 +26,6 @@ const products = [
     featured: true,
     image: "/jbl.jpeg",
   },
-
-  {
-    id: 1,
-    title: "Apple Watch Series 5",
-    category: "Electronics",
-    price: "$499.00 - $599.00",
-    discount: "17% OFF",
-    image: "/waaa.jpeg", // make sure the image path is correct (public folder)
-  },
-  {
-    id: 2,
-    title: "apple watch series",
-    category: "Electrinics",
-    price: "$25.00",
-    oldPrice: "$45.00",
-    discount: "44% OFF",
-    image: "/Watchii.jpg",
-  },
-  {
-    id: 3,
-    title: "JBL On-Ear Headphones",
-    category: "Electronics",
-    price: "$124.00",
-    featured: true,
-    image: "/imagee.jpeg",
-  },
-
-
 ];
 
 const ProductList: React.FC = () => {
